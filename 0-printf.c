@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			switch (*format)
+			{
 				case 'c':
 					c = va_arg(args, int);
 					putchar(c);
@@ -27,8 +28,10 @@ int _printf(const char *format, ...)
 					break;
 				case 's':
 					for (s = va_arg(args, char *); *s; s++)
+					{
 						putchar(*s);
 						counter++;
+					}
 					break;
 				case '%':
 					putchar('%');
@@ -37,13 +40,16 @@ int _printf(const char *format, ...)
 				default:
 					putchar('%');
 					putchar(*format);
-					counter + = 2;
+					counter += 2;
 					break;
+			}
 		}
 		else
+		{
 			putchar(*format);
 			counter++;
-		format++;
+		}
+	format++;
 	}
 	va_end(args);
 	return (counter);

@@ -1,1 +1,1 @@
-printf project readme in the root directory
+read me for printf project at the root directory
