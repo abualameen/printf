@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	char c;
 	char *s;
+	int val;
 	int counter = 0;
 
 	va_start(args, format);
@@ -35,6 +36,12 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					putchar('%');
+					counter++;
+					break;
+				case 'd':
+				case 'i':
+					val = va_arg(args, int);
+					printf("%d", val);
 					counter++;
 					break;
 				default:
