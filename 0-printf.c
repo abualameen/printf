@@ -34,15 +34,19 @@ int _printf(const char *format, ...)
 			{
 				s = va_arg(args, char *);
 				while (*s)
+				{
 					_putc(*s);
 					counter++;
 					s++;
+				}
 			}
 		}
 		else
+		{
 			_putc(*format);
 			counter++;
 			format++;
+		}
 
 	}
 	va_end(args);
