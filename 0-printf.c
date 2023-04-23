@@ -64,6 +64,7 @@ int _printf(const char *format, ...)
 					}
 					break;
 				default:
+					_putc('%');
 					_putc(*format);
 					counter += 2;
 					break;
