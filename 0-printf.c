@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 	int arr[MAX] ;
 
 	va_start(args, format);
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
@@ -60,10 +60,10 @@ int _printf(const char *format, ...)
 					for (q = y - 1; q > -1; q--)
 					{
 						_putc(arr[q] + '0');
+						counter++;
 					}
 					break;
 				default:
-					_putc('%');
 					_putc(*format);
 					counter += 2;
 					break;
