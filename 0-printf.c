@@ -1,53 +1,96 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdio.h>
 /**
- * _printf - this function prints according to format
- * @format: given format
+ * _printf - main entry of the function printf
+ * @format: string containing the format
  * Return: 0
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
 	char c;
 	char *s;
+	int base;
+	int dgts, dgt, temp;
+	int val, q;
 	int counter = 0;
 
 	va_start(args, format);
-	while (*format != '\0')
+	while (*format)
 	{
 		if (*format == '%')
 		{
 			format++;
-			if (*format == c)
+			switch (*format)
 			{
-				c = va_arg(args, int);
-				_putc(c);
-				counter++;
-			}
-			else if (*format == '%')
-			{
-				_putc('%');
-				counter++;
-			}
-			else if (*format == 's')
-			{
-				s = va_arg(args, char *);
-				while (*s)
-				{
-					_putc(*s);
+				case 'c':
+					c = va_arg(args, int);
+					_putc(c);
 					counter++;
-					s++;
-				}
+					break;
+				case 's':
+					for (s = va_arg(args, char *); *s; s++)
+					{
+						_putc(*s);
+						counter++;
+					}
+					break;
+				case '%':
+					_putc('%');
+					counter++;
+					break;
+				case 'i':
+				case 'd':
+					val = va_arg(args, int);
+					if (val < 0)
+					{
+						_putc('-');
+						counter++;
+						val = -val;
+					}
+					dgts = 0;
+					temp = val;
+					while (temp != 0)
+					{
+						dgts++;
+						temp /= 10;
+					}
+					if (dgts == 0)
+					{
+						_putc('0');
+						counter++;
+					}
+					else
+					{
+						base = 1;
+						for (q = 1; q < dgts; q++)
+						{
+							base *= 10;
+						}
+						while (base != 0)
+						{
+							dgt = val / base;
+							_putc(dgt + '0');
+							counter++;
+							val %= base;
+							base /= 10;
+						}
+					}
+					break;
+				default:
+					_putc('%');
+					_putc(*format);
+					counter += 2;
+					break;
 			}
 		}
 		else
 		{
 			_putc(*format);
 			counter++;
-			format++;
 		}
-
+		format++;
 	}
 	va_end(args);
 	return (counter);
