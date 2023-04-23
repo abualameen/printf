@@ -59,7 +59,7 @@ int _printf(const char *format, ...)
 					}
 					for (q = y - 1; q > -1; q--)
 					{
-						putchar(arr[q] + '0');
+						printf("%d", arr[q]);
 					}
 					break;
 				default:
