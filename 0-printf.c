@@ -11,8 +11,10 @@ int _printf(const char *format, ...)
 	va_list args;
 	char c;
 	char *s;
-	int val, dgt, temp, base, w;
+	int val, temp, q, t; 
+	int y = 0;
 	int counter = 0;
+	int arr[MAX];
 
 	va_start(args, format);
 	while (*format)
@@ -47,32 +49,17 @@ int _printf(const char *format, ...)
 						counter++;
 						val = -val;
 					}
-					dgt = 0;
 					temp = val;
 					while (temp != 0)
 					{
-						dgt++;
-						temp /= 10;
+						t = temp % 10;
+						arr[y] = t;
+						y++;
+						temp = temp / 10;
 					}
-					if (dgt == 0)
+					for (q = y - 1; q > -1; q--)
 					{
-						counter++;
-					}
-					else
-					{
-						base = 1;
-						for (w = 0;  w < dgt; w++)
-						{
-							base *= 10;
-						}
-						while (base != 0)
-						{
-							dgt = val / base;
-							putchar('0' + dgt);
-							counter++;
-							val %= base;
-							base /= 10;
-						}
+						putchar(arr[q] + '0');
 					}
 					break;
 				default:
