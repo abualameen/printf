@@ -14,10 +14,10 @@ int _printf(const char *format, ...)
 	int val, temp, q, t; 
 	int y = 0;
 	int counter = 0;
-	int arr[MAX];
+	int arr[MAX] ;
 
 	va_start(args, format);
-	while (*format)
+	while (*format != '\0')
 	{
 		if (*format == '%')
 		{
@@ -26,18 +26,18 @@ int _printf(const char *format, ...)
 			{
 				case 'c':
 					c = va_arg(args, int);
-					putchar(c);
+					_putc(c);
 					counter++;
 					break;
 				case 's':
 					for (s = va_arg(args, char *); *s; s++)
 					{
-						putchar(*s);
+						_putc(*s);
 						counter++;
 					}
 					break;
 				case '%':
-					putchar('%');
+					_putc('%');
 					counter++;
 					break;
 				case 'd':
@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 					val = va_arg(args, int);
 					if (val < 0)
 					{
-						putchar('-');
+						_putc('-');
 						counter++;
 						val = -val;
 					}
@@ -59,19 +59,19 @@ int _printf(const char *format, ...)
 					}
 					for (q = y - 1; q > -1; q--)
 					{
-						printf("%d", arr[q]);
+						_putc(arr[q] + '0');
 					}
 					break;
 				default:
-					putchar('%');
-					putchar(*format);
+					_putc('%');
+					_putc(*format);
 					counter += 2;
 					break;
 			}
 		}
 		else
 		{
-			putchar(*format);
+			_putc(*format);
 			counter++;
 		}
 	format++;
@@ -79,3 +79,5 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (counter);
 }
+
+
