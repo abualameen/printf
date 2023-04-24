@@ -2,17 +2,15 @@
 #include <stdarg.h>
 #include <stddef.h>
 /**
- * _printf - main entry of the function printf
+ * _vprintk - main entry of the function printf
  * @format: string containing the format
  * Return: 0
  */
-int _printf(const char *format, ...)
+int vprintfk(const char *format, va_list args)
 {
-	va_list args;
 	int counter = 0;
 	char *s;
 
-	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
