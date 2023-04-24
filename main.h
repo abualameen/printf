@@ -6,7 +6,7 @@ int _putc(char c);
 #define MAX 100
 int _vprintf(const char *format, va_list args);
 void int_base_str(int num, int base, char str[]);
-
+int _1printf(const char *format, ...);
 
 
 
