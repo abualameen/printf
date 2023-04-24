@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stddef.h>
 /**
  * _printf - main entry of the function printf
  * @format: string containing the format
@@ -15,6 +16,10 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (*format)
 	{
+		if (format == NULL)
+		{
+			return (-1);
+		}
 		if (*format == '%')
 		{
 			format++;
