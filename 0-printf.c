@@ -34,6 +34,7 @@ int _printf(const char *format, ...)
 					{
 						str = "(null)";
 						counter += write(1, str, str_len(str));
+						return (-1);
 					}
 					counter += _putc(*str);
 				}
