@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putc(*format);
+			counter += _putc(*format);
 		}
 		format++;
 	}
