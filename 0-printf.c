@@ -30,10 +30,8 @@ int _printf(const char *format, ...)
 			{
 				for (str = va_arg(args, char *); *str; str++)
 				{
-					if (!str)
+					if (str == NULL)
 					{
-						str = "(null)";
-						counter += write(1, str, str_len(str));
 						return (-1);
 					}
 					counter += _putc(*str);
@@ -75,7 +73,7 @@ int _putc(char c)
 
 /**
  * str_len - comput len of str
- * @str: string
+ * @f: string
  * Return: 0
  */
 int str_len(const char *f)
