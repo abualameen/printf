@@ -1,5 +1,6 @@
 #include "main.h"
 int _putc(char c);
+int str_len(const char *f);
 /**
  * _printf - print arguments
  * @format: string to be printed
@@ -31,7 +32,8 @@ int _printf(const char *format, ...)
 				{
 					if (str == NULL)
 					{
-						return (-1);
+						str = "(null)";
+						write(1, str, str_len(str));
 					}
 					counter += _putc(*str);
 				}
@@ -68,4 +70,21 @@ int _printf(const char *format, ...)
 int _putc(char c)
 {
 	return (write(1, &c, 1));
+}
+
+/**
+ * str_len - comput len of str
+ * @str: string
+ * Return: 0
+ */
+int str_len(const char *f)
+{
+	int e;
+	int count;
+
+	for (e = 0; f[e] != '\0'; e++)
+	{
+		count++;
+	}
+	return (count);
 }
