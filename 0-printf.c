@@ -30,11 +30,10 @@ int _printf(const char *format, ...)
 			{
 				for (str = va_arg(args, char *); *str; str++)
 				{
-					if (!str)
+					if (str == NULL)
 					{
 						str = "(nill)";
 						counter += write(1, str, str_len(str));
-						return (-1);
 					}
 					counter += _putc(*str);
 				}
