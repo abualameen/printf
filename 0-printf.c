@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 			{
 				for (str = va_arg(args, char *); *str; str++)
 				{
-					if (str == NULL)
+					if (!str)
 					{
 						str = "(null)";
 						counter += write(1, str, str_len(str));
