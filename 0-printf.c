@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 					if (str == NULL)
 					{
 						str = "(null)";
-						write(1, str, str_len(str));
+						counter += write(1, str, str_len(str));
 					}
 					counter += _putc(*str);
 				}
