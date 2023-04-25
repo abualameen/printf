@@ -19,6 +19,8 @@ int _printf(const char *format, ...)
         va_start(args, format);
         while (*format)
         {
+		if (format == NULL)
+			return (-1);
                 if (*format == '%')
                 {
                         format++;
@@ -32,6 +34,10 @@ int _printf(const char *format, ...)
                                 case 's':
                                         for (s = va_arg(args, char *); *s; s++)
                                         {
+						if (s == NULL)
+						{
+							return(-1);
+						}
                                                 _putc(*s);
                                                 counter++;
                                         }
