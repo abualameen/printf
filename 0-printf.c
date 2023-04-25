@@ -45,7 +45,7 @@ int _printf(const char *format, ...)
 			else if (*format != 'c' || *format != 's' || *format != '%')
 			{
 				counter += _putc('%');
-				counter += _putc('r');
+				counter += _putc(*format);
 			}
 
 		}
