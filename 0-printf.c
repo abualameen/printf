@@ -13,7 +13,6 @@ int _printf(const char *format, ...)
 	int counter = 0;
 
 	va_start(args, format);
-	/*_int_hand(format, args);*/
 	if (format == NULL)
 		return (-1);
 	while (*format)
@@ -22,10 +21,10 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			counter += format_hand(&format, args);
-		}
-		else if (*format == '\0')
-		{
-			return (-1);
+			if (*format == '\0')
+			{
+				return (-1);
+			}
 		}
 		else
 		{
