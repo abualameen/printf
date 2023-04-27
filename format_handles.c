@@ -24,6 +24,12 @@ int format_hand(const char **format_ptr, va_list args)
 		case '%':
 			counter = perc_hand();
 			break;
+		case 'd':
+			counter = deci_hand(format_ptr, args);
+			break;
+		case 'i':
+			counter = int_hand(format_ptr, args);
+			break;
 		case '\0':
 			return (-1);
 		default:
