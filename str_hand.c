@@ -24,7 +24,7 @@ int str_hand(const char **format_ptr, va_list args)
 	{
 		while (*s)
 		{
-			if (s == NULL)
+			if (*s == '\0')
 			{
 				return (-1);
 			}
