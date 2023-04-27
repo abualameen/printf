@@ -19,7 +19,6 @@ int str_hand(const char **format_ptr, va_list args)
 	{
 		s = "(null)";
 		counter += write(1, s, str_len(s));
-		_putc(' ');
 	}
 	else
 	{
