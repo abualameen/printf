@@ -24,10 +24,6 @@ int str_hand(const char **format_ptr, va_list args)
 	{
 		while (*s)
 		{
-			if (*s == '\0')
-			{
-				return (-1);
-			}
 			_putc(*s++);
 			counter++;
 		}
