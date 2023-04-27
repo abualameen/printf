@@ -3,7 +3,7 @@
 /**
  * format_hand - takes care of all format specifier
  * @format_ptr: pointer to the format pointer
- * @args: list 
+ * @args: list
  * Return: 0
  */
 
@@ -13,7 +13,7 @@ int format_hand(const char **format_ptr, va_list args)
 	const  char *format;
 	int counter = 0;
 
-	format = *format_ptr;	
+	format = *format_ptr;
 	switch (*format)
 	{
 		case 'c':
@@ -24,7 +24,7 @@ int format_hand(const char **format_ptr, va_list args)
 			break;
 		case '%':
 			counter = perc_hand();
-			break;	
+			break;
 		default:
 			counter += _putc('%');
 			counter += _putc(*format);
