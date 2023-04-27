@@ -12,10 +12,6 @@ int chara_hand(const char **format_ptr, va_list args)
 	char c;
 	int counter = 0;
 
-	if (*format == '\0')
-	{
-		return (0);
-	}
 	c = va_arg(args, int);
 	_putc(c);
 	counter++;
