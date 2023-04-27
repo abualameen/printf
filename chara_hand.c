@@ -14,7 +14,7 @@ int chara_hand(const char **format_ptr, va_list args)
 
 	if (*format == '\0')
 	{
-		return (-1);
+		return (0);
 	}
 	c = va_arg(args, int);
 	if (c == '\0')
