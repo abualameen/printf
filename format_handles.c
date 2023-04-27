@@ -30,6 +30,9 @@ int format_hand(const char **format_ptr, va_list args)
 		case 'i':
 			counter = int_hand(format_ptr, args);
 			break;
+		case 'b':
+			counter = unsignedint_bin_hand(format_ptr, args);
+			break;
 		case '\0':
 			return (-1);
 		default:

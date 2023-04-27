@@ -15,5 +15,8 @@ int perc_hand(void);
 void int_base_str(int num, int base, char str[]);
 int deci_hand(const char **format, va_list args);
 int int_hand(const char **format_ptr, va_list args);
+int unsignedint_bin_hand(const char **format_ptr, va_list args);
+void unint_base_str(unsigned int num, int base, char str[]);
+
 
 #endif
