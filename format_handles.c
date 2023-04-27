@@ -14,10 +14,6 @@ int format_hand(const char **format_ptr, va_list args)
 	int counter = 0;
 
 	format = *format_ptr;
-	if (format == NULL)
-	{
-		return (-1);
-	}
 	switch (*format)
 	{
 		case 'c':

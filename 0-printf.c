@@ -1,5 +1,4 @@
 #include "main.h"
-int str_len(const char *f);
 
 /**
  * _printf - main function
