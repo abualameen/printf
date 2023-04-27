@@ -15,19 +15,18 @@ int str_hand(const char **format_ptr, va_list args)
 
 	format = *format_ptr;
 	s = va_arg(args, char *);
-	while (*s)
+	if (s == NULL)
 	{
-		if (s == NULL)
+		s = "(null) ";
+		counter += write(1, s, str_len(s));
+	}
+	else
+	{
+		while (*s)
 		{
-			s = "(nill)";
-			counter += write(1, s, str_len(s));
+			_putc(*s++);
+			counter++;
 		}
-		if (*s == '\0')
-		{
-			return (-1);
-		}
-		_putc(*s++);
-		counter++;
 	}
 	*format_ptr = format + 1;
 	return (counter);
@@ -41,7 +40,7 @@ int str_hand(const char **format_ptr, va_list args)
 int str_len(const char *f)
 {
 	int e;
-	int count;
+	int count = 0;
 
 	for (e = 0; f[e] != '\0'; e++)
 	{
