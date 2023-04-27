@@ -20,10 +20,6 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			counter += format_hand(&format, args);
-			if (*format == '\0')
-			{
-				return (-1);
-			}
 		}
 		else
 		{

@@ -27,7 +27,6 @@ int format_hand(const char **format_ptr, va_list args)
 			break;
 		case '\0':
 			return (-1);
-			break;
 		default:
 			counter += _putc('%');
 			counter += _putc(*format);
