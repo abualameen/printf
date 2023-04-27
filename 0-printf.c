@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 			format++;
 			counter += format_hand(&format, args);
 		}
+		else if (*format == '\0')
+			return (-1);
 		else
 		{
 			counter += _putc(*format);
@@ -50,7 +52,7 @@ int _printf(const char *format, ...)
  * @f: string
  * Return: 0
  */
-int str_len(const char *f)
+/*int str_len(const char *f)
 {
 	int e;
 	int count;
@@ -60,4 +62,4 @@ int str_len(const char *f)
 		count++;
 	}
 	return (count);
-}
+}*/
