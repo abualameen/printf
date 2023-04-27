@@ -14,10 +14,6 @@ int str_hand(const char **format_ptr, va_list args)
 	int counter = 0;
 
 	format = *format_ptr;
-	if (*format == '\0')
-	{
-		return (-1);
-	}
 	s = va_arg(args, char *);
 	while (*s)
 	{
