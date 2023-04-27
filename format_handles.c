@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * format_hand - takes care of all format specifier
  * @format_ptr: pointer to the format pointer
@@ -25,8 +24,6 @@ int format_hand(const char **format_ptr, va_list args)
 		case '%':
 			counter = perc_hand();
 			break;
-		case '\0':
-			return (-1);
 		default:
 			counter += _putc('%');
 			counter += _putc(*format);
