@@ -1,5 +1,5 @@
 #include "main.h"
-int str_len(const char *f);
+int str_len1(const char *f);
 /**
  * str_hand - handles strings
  * @format_ptr: format ptr to forrmat
@@ -18,7 +18,7 @@ int str_hand(const char **format_ptr, va_list args)
 	if (s == NULL)
 	{
 		s = "(null) ";
-		counter += write(1, s, str_len(s));
+		counter += write(1, s, str_len1(s));
 	}
 	else
 	{
@@ -33,11 +33,11 @@ int str_hand(const char **format_ptr, va_list args)
 }
 
 /**
- * str_len - comput len of str
+ * str_len1 - comput len of str
  * @f: string
  * Return: 0
  */
-int str_len(const char *f)
+int str_len1(const char *f)
 {
 	int e;
 	int count = 0;

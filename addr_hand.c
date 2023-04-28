@@ -17,27 +17,26 @@ int addr_hand(const char **format_ptr, va_list args)
 	unsigned long num;
 	unsigned long base = 16;
 	char hex_digits[] = "0123456789abcdef";
+	char buf[1024];
+	int len = 0;
 
 	format = *format_ptr;
 	val = va_arg(args, void *);
-	if (val == NULL)
-	{
-		return (-1);
-	}
 	num = (unsigned long) val;
 	do {
 		st[q++] = hex_digits[num % base];
 		num /= base;
 	} while (num);
 	st[q] = '\0';
-	_putc('0');
-	counter++;
-	_putc('x');
-	counter++;
-	for (q--; q >= 0; q--)
+	buf[len++] = '0';
+	buf[len++] = 'x';
+	for (q = str_len(st) - 1; q >= 0; q--)
 	{
-		_putc(st[q]);
-		counter++;
+		buf[len++] = st[q];
+	}
+	for (q = 0; q < len; q++)
+	{
+		counter += _putc(buf[q]);
 	}
 	*format_ptr = format;
 	return (counter);

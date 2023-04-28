@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * unint_base_str - converts int to str
  * @num: num to be converted
