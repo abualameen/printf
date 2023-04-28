@@ -10,38 +10,31 @@
 int addr_hand(const char **format_ptr, va_list args)
 {
 	const char *format;
-	int val, q;
+	int q = 0;
+	void *val;
 	int counter = 0;
-	char st[100];
+	char st[sizeof(void *) * 2 + 1];
+	unsigned long num;
+	unsigned long base = 16;
+	char hex_digits[] = "0123456789abcdef";
 
 	format = *format_ptr;
-	switch (format[-1])
-	{
-		case 'x':
-		case 'p':
-			val = va_arg(args, uint32_t);
-			break;
-		case 'X':
-			val = va_arg(args, uint32_t);
-			break;
-		case 'l':
-		case 'z':
-			val = va_arg(args, uint64_t);
-			break;
-		default:
-			val = va_arg(args, unsigned int);
-			break;
-	}
+	val = va_arg(args, void *);
+	num = (unsigned long) val;
+	do {
+		st[q++] = hex_digits[num % base];
+		num /= base;
+	} while (num);
+	st[q] = '\0';
 	_putc('0');
 	counter++;
 	_putc('x');
 	counter++;
-	unint_base_str(val, 16, st);
-	for (q = 0; st[q]; q++)
+	for (q--; q >= 0; q--)
 	{
 		_putc(st[q]);
 		counter++;
 	}
-	format++;
+	*format_ptr = format;
 	return (counter);
 }
