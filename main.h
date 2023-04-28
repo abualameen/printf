@@ -21,6 +21,6 @@ int unsignedint_dec_hand(const char **format_ptr, va_list args);
 int unsignedint_oct_hand(const char **format_ptr, va_list args);
 int unsignedint_hex_hand(const char **format_ptr, va_list args);
 int unsignedint_hex_hand_upp(const char **format_ptr, va_list args);
-
+int addr_hand(const char **format_prt, va_list args);
 
 #endif

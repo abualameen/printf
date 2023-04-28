@@ -46,6 +46,9 @@ int format_hand(const char **format_ptr, va_list args)
 		case 'X':
 			counter = unsignedint_hex_hand_upp(format_ptr, args);
 			break;
+		case 'p':
+			counter = addr_hand(format_ptr, args);
+			break;
 		case '\0':
 			return (-1);
 		default:

@@ -21,9 +21,9 @@ void unint_base_str(unsigned int num, int base, char str[])
 		} while ((num /= base) > 0);
 		str[i] = '\0';
 		for (j = 0; j < i / 2; j++)
-	{
+		{
 			temp = str[j];
 			str[j] = str[i - j - 1];
 			str[i - j - 1] = temp;
-	}
+		}
 }
