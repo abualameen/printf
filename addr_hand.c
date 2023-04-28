@@ -20,6 +20,10 @@ int addr_hand(const char **format_ptr, va_list args)
 
 	format = *format_ptr;
 	val = va_arg(args, void *);
+	if (val == NULL)
+	{
+		return (-1);
+	}
 	num = (unsigned long) val;
 	do {
 		st[q++] = hex_digits[num % base];
