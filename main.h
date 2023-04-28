@@ -17,6 +17,10 @@ int deci_hand(const char **format, va_list args);
 int int_hand(const char **format_ptr, va_list args);
 int unsignedint_bin_hand(const char **format_ptr, va_list args);
 void unint_base_str(unsigned int num, int base, char str[]);
+int unsignedint_dec_hand(const char **format_ptr, va_list args);
+int unsignedint_oct_hand(const char **format_ptr, va_list args);
+int unsignedint_hex_hand(const char **format_ptr, va_list args);
+int unsignedint_hex_hand_upp(const char **format_ptr, va_list args);
 
 
 #endif

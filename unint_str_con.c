@@ -8,13 +8,9 @@
 void unint_base_str(unsigned int num, int base, char str[])
 {
 	int i = 0;
-	int j, sign;
+	int j;
 	int digit;
 	char temp;
-
-	sign = num;
-	if ((sign) < 0)
-		num = -num;
 
 	do {
 		digit = num % base;
@@ -23,9 +19,6 @@ void unint_base_str(unsigned int num, int base, char str[])
 		else
 			str[i++] = digit - 10 + 'a';
 		} while ((num /= base) > 0);
-		if (sign < 0)
-			str[i++] = '-';
-
 		str[i] = '\0';
 		for (j = 0; j < i / 2; j++)
 	{
